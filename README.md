@@ -8,9 +8,23 @@
     composer install
     ```
 
-1. php artisan migrate
+2. Configurar o Ambiente
 
-2. php artisan db:seed
+    ```bash
+    cp .env.example .env  
+    ```
+
+3. Migrar o Banco de Dados
+
+    ```bash
+    php artisan migrate 
+    ```
+
+4. Povoar o Banco de Dados
+
+    ```bash
+    php artisan db:seed --class=UsersTableSeeder
+    ```
 
 ## Iniciando o Servidor PHP 
 
