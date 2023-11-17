@@ -83,7 +83,7 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
 
 **Exemplo de Uso:**
 ```http
-GET api/list-users/1
+GET /api/list-users/1
 ```
 
 **Resposta de Exemplo**
