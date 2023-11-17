@@ -14,6 +14,7 @@ use App\Http\Controllers\StoryController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::get('/list-users/{user_id}', [StoryController::class, 'listUsers']);
 
 Route::get('/user-stories/{user_id}', [StoryController::class, 'showUserStories']);

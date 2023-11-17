@@ -1,5 +1,11 @@
 # PRECIFICAR API
 
+## Configuração Inicial
+
+1. php artisan migrate
+
+2. php artisan db:seed
+
 ## Iniciando o Servidor PHP 
 
 Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as interfaces de rede, siga estas etapas:
