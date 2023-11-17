@@ -16,7 +16,7 @@
 
 3. Definir o Banco de dados
 
-    atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
+    Atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
 
     ![Screenshot 1](screenshots/banco.png)
 
@@ -55,6 +55,18 @@ Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as 
 Lembre-se de substituir `SEU_ENDERECO_IP` pelo endereço IP real da máquina que está executando o servidor PHP.
 
 Certifique-se de fornecer informações adicionais, como a necessidade de ter o PHP instalado, e ajuste conforme necessário para atender às especificidades do seu projeto.
+
+## Obter Imagem
+
+**Endpoint:** `GET /storage/stories-images/{image}`
+
+**Descrição:**
+Esta rota permite obter uma imagem de um story específico. O parâmetro `{image}` no final do endpoint representa o nome do arquivo de imagem desejado. Ao acessar este endpoint, a imagem correspondente será retornada.
+
+**Exemplo de Uso:**
+```http
+GET /storage/stories-images/nome_da_imagem.jpg
+```
 
 ## Obter lista de Usuários
 
