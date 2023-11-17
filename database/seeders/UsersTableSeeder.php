@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             DB::table('users')->insert([
                 'name' => "User $i",
                 'email' => "user$i@example.com",
-                'password' => Hash::make('password'), // Você pode ajustar a senha conforme necessário
+                'password' => Hash::make('password'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
