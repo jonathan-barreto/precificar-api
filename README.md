@@ -4,7 +4,9 @@
 
 1. Instalar dependências
 
- ```bash composer install ```
+    ```bash
+    composer install
+    ```
 
 1. php artisan migrate
 
