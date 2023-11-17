@@ -81,9 +81,8 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-
 ```http
-- GET api/list-users/1
+GET api/list-users/1
 ```
 
 **Resposta de Exemplo**
@@ -115,9 +114,8 @@ Esta rota é responsável por obter os stories de um usuário específico com ba
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-
 ```http
-- GET api/my-stories/1
+GET api/my-stories/1
 ```
 
 **Resposta de Exemplo**
@@ -152,9 +150,8 @@ Esta rota permite que os usuários façam upload do seu story por meio do envio 
 - `image` (arquivo): A imagem a ser enviada.
 
 **Exemplo de Uso:**
-
 ```http
-- POST api/create-story
+POST api/create-story
 ```
 
 **Resposta de Exemplo**
