@@ -72,7 +72,7 @@ GET /storage/stories-images/nome_da_imagem.jpg
 
 ## Obter lista de Usuários
 
-**Endpoint:** `GET api/list-users/{user_id}`
+**Endpoint:** `GET /api/list-users/{user_id}`
 
 **Descrição:**
 
@@ -106,7 +106,7 @@ GET /api/list-users/1
 
 ## Obter Stories de um Usuário
 
-**Endpoint:** `GET /my-stories/{user_id}`
+**Endpoint:** `GET /api/my-stories/{user_id}`
 
 **Descrição:**
 Esta rota é responsável por obter os stories de um usuário específico com base no `user_id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
@@ -115,9 +115,9 @@ Esta rota é responsável por obter os stories de um usuário específico com ba
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-    ```bash
-    GET api/my-stories/1
-    ```
+```http
+GET /api/my-stories/1
+```
 
 **Resposta de Exemplo**
 
@@ -140,7 +140,7 @@ Esta rota é responsável por obter os stories de um usuário específico com ba
 
 ## Criação de story
 
-**Endpoint:** `POST api/create-story`
+**Endpoint:** `POST /api/create-story`
 
 **Descrição:**
 
@@ -151,9 +151,9 @@ Esta rota permite que os usuários façam upload do seu story por meio do envio 
 - `image` (arquivo): A imagem a ser enviada.
 
 **Exemplo de Uso:**
-    ```bash
-    POST api/create-story
-    ```
+```http
+POST /api/create-story
+```
 
 **Resposta de Exemplo**
 
