@@ -1,6 +1,6 @@
 # PRECIFICAR API
 
-## Iniciando o Servidor PHP para Desenvolvimento
+## Iniciando o Servidor PHP 
 
 Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as interfaces de rede, siga estas etapas:
 
