@@ -16,7 +16,7 @@
 
 3. Definir o Banco de dados
 
-    Atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
+    No arquivo .env que foi craido, atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
 
     ![Screenshot 1](screenshots/banco.png)
 
@@ -65,9 +65,9 @@ Certifique-se de fornecer informações adicionais, como a necessidade de ter o 
 Esta rota permite obter uma imagem de um story específico. O parâmetro `{image}` no final do endpoint representa o nome do arquivo de imagem desejado. Ao acessar este endpoint, a imagem correspondente será retornada.
 
 **Exemplo de Uso:**
-```http
-GET /storage/stories-images/nome_da_imagem.jpg
-```
+    ```bash
+    GET /storage/stories-images/nome_da_imagem.jpg
+    ```
 
 ## Obter lista de Usuários
 
@@ -81,9 +81,9 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-```http
-GET api/list-users/1
-```
+    ```bash
+    GET api/list-users/1
+    ```
 
 **Resposta de Exemplo**
 
@@ -114,9 +114,9 @@ Esta rota é responsável por obter os stories de um usuário específico com ba
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-```http
-GET api/my-stories/1
-```
+    ```bash
+    GET api/my-stories/1
+    ```
 
 **Resposta de Exemplo**
 
@@ -150,9 +150,9 @@ Esta rota permite que os usuários façam upload do seu story por meio do envio 
 - `image` (arquivo): A imagem a ser enviada.
 
 **Exemplo de Uso:**
-```http
-POST api/create-story
-```
+    ```bash
+    POST api/create-story
+    ```
 
 **Resposta de Exemplo**
 
