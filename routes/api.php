@@ -19,7 +19,7 @@ Route::get('/list-users/{user_id}', [StoryController::class, 'listUsers']);
 
 Route::get('/user-stories/{user_id}', [StoryController::class, 'showUserStories']);
 
-Route::post('/upload-image', [StoryController::class, 'uploadImage']);
+Route::post('/create-story', [StoryController::class, 'createStory']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

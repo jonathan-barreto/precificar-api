@@ -49,24 +49,24 @@ class StoryController extends Controller
         return response()->json(['stories' => []], 200);
     }
 
-    public function uploadImage(Request $request)
+    public function createStory(Request $request)
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');
 
             try {
-                $story = $this->createStory($request, $image);
+                $story = $this->saveImage($request, $image);
             } catch (\Exception $e) {
                 return response()->json(['error' => $e->getMessage()], 500);
             }
 
-            return response()->json(['message' => 'Upload do arquivo concluído com sucesso!']);
+            return response()->json(['message' => 'Upload do story foi concluído com sucesso!']);
         }
 
         return response()->json(['message' => 'Nenhum arquivo enviado.']);
     }
 
-    private function createStory($request, $image)
+    private function saveImage($request, $image)
     {
         $story = new Story();
 

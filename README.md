@@ -1,64 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# PRECIFICAR API
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Obter lista de Usuários
 
-## About Laravel
+**Endpoint:** `GET api/list-users/{user_id}`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Descrição:**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Esta rota lista os usuários com stories mais recentes, ordenados pelo story mais recente de cada usuário. A lista é filtrada para incluir apenas usuários com stories que ainda não expiraram.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Parâmetros:**
+- `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
-## Learning Laravel
+**Exemplo de Uso:**
+- `GET api/my-stories/1`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Resposta de Exemplo**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```http
+{
+  "current_user": {
+    "id": 1,
+    "name": "Usuário Atual",
+  },
+  "users": [
+    {
+      "id": 2,
+      "name": "Usuário 1",
+      // Outras informações do usuário...
+    },
+    // Outros usuários...
+  ]
+}
+```
 
-## Laravel Sponsors
+## Obter Stories de um Usuário
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**Endpoint:** `GET /my-stories/{user_id}`
 
-### Premium Partners
+**Descrição:**
+Esta rota é responsável por obter os stories de um usuário específico com base no `user_id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+**Parâmetros:**
+- `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
-## Contributing
+**Exemplo de Uso:**
+- `GET api/my-stories/1`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Resposta de Exemplo**
 
-## Code of Conduct
+```http
+{
+  "stories": [
+    {
+      "id": 1,
+      "user_id": 123,
+      "path_image_story": "story1.jpg",
+      "subtitle_story": "Lorem ipsum...",
+      "expiration_date": "2023-11-20 12:00:00",
+      "created_at": "2023-11-18 08:30:00",
+      "updated_at": "2023-11-18 08:30:00"
+    },
+    // Outros stories...
+  ]
+}
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Criação de story
 
-## Security Vulnerabilities
+**Endpoint:** `POST api/create-story`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Descrição:**
 
-## License
+Esta rota permite que os usuários façam upload do seu story por meio do envio de uma imagem. A imagem é salva no sistema de arquivos, e as informações do story são registradas no banco de dados.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Parâmetros:**
+- `user_id` (body): O ID do usuário que está fazendo o upload.
+- `image` (arquivo): A imagem a ser enviada.
+
+**Exemplo de Uso:**
+
+- `POST api/create-story`
+
+**Resposta de Exemplo**
+
+```http
+{
+  "message": "Upload do story foi concluído com sucesso!"
+}
+```
