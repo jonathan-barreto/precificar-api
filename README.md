@@ -16,7 +16,7 @@
 
 3. Definir o Banco de dados
 
-    No arquivo .env que foi craido, atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
+    No arquivo .env que foi criado, atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
 
     ![Screenshot 1](screenshots/banco.png)
 
@@ -29,7 +29,7 @@
 5. Povoar o Banco de Dados
 
     ```bash
-    php artisan db:seed --class=UsersTableSeeder
+        php artisan db:seed --class=UsersTableSeeder
     ```
 
 ## Iniciando o Servidor PHP 
@@ -65,6 +65,7 @@ Certifique-se de fornecer informações adicionais, como a necessidade de ter o 
 Esta rota permite obter uma imagem de um story específico. O parâmetro `{image}` no final do endpoint representa o nome do arquivo de imagem desejado. Ao acessar este endpoint, a imagem correspondente será retornada.
 
 **Exemplo de Uso:**
+
     ```bash
     GET /storage/stories-images/nome_da_imagem.jpg
     ```
