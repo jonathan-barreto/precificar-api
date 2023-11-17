@@ -65,9 +65,8 @@ Certifique-se de fornecer informações adicionais, como a necessidade de ter o 
 Esta rota permite obter uma imagem de um story específico. O parâmetro `{image}` no final do endpoint representa o nome do arquivo de imagem desejado. Ao acessar este endpoint, a imagem correspondente será retornada.
 
 **Exemplo de Uso:**
-
 ```http
-- GET /storage/stories-images/nome_da_imagem.jpg
+GET /storage/stories-images/nome_da_imagem.jpg
 ```
 
 ## Obter lista de Usuários
