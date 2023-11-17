@@ -14,13 +14,19 @@
     cp .env.example .env  
     ```
 
-3. Migrar o Banco de Dados
+3. Definir o Banco de dados
+
+    atualize as configurações do banco de dados, fornecendo o nome do banco de dados desejado, usuário, senha e outras informações relevantes.
+
+    ![Screenshot 1](screenshots/banco.png)
+
+4. Migrar o Banco de Dados
 
     ```bash
     php artisan migrate 
     ```
 
-4. Povoar o Banco de Dados
+5. Povoar o Banco de Dados
 
     ```bash
     php artisan db:seed --class=UsersTableSeeder
