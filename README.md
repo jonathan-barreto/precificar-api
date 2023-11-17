@@ -1,5 +1,29 @@
 # PRECIFICAR API
 
+## Iniciando o Servidor PHP para Desenvolvimento
+
+Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as interfaces de rede, siga estas etapas:
+
+1. Abra um terminal no diretório do seu projeto Laravel.
+
+2. Execute o seguinte comando:
+
+    ```bash
+    php artisan serve --host=0.0.0.0
+    ```
+
+3. O servidor será iniciado e estará acessível em todas as interfaces de rede.
+
+4. Você pode acessar seu aplicativo Laravel a partir de outros dispositivos na mesma rede usando o endereço IP da máquina que está executando o servidor PHP e a porta padrão `8000`. Por exemplo:
+
+    ```bash
+    http://SEU_ENDERECO_IP:8000
+    ```
+
+Lembre-se de substituir `SEU_ENDERECO_IP` pelo endereço IP real da máquina que está executando o servidor PHP.
+
+Certifique-se de fornecer informações adicionais, como a necessidade de ter o PHP instalado, e ajuste conforme necessário para atender às especificidades do seu projeto.
+
 ## Obter lista de Usuários
 
 **Endpoint:** `GET api/list-users/{user_id}`
