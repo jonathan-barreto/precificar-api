@@ -26,9 +26,7 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
     {
       "id": 2,
       "name": "Usuário 1",
-      // Outras informações do usuário...
     },
-    // Outros usuários...
   ]
 }
 ```
