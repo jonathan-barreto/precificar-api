@@ -61,11 +61,13 @@ Certifique-se de fornecer informações adicionais, como a necessidade de ter o 
 **Endpoint:** `GET /storage/stories-images/{image}`
 
 **Descrição:**
+
 Esta rota permite obter uma imagem de um story específico. O parâmetro `{image}` no final do endpoint representa o nome do arquivo de imagem desejado. Ao acessar este endpoint, a imagem correspondente será retornada.
 
 **Exemplo de Uso:**
+
 ```http
-GET /storage/stories-images/nome_da_imagem.jpg
+- GET /storage/stories-images/nome_da_imagem.jpg
 ```
 
 ## Obter lista de Usuários
@@ -80,7 +82,10 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-- `GET api/my-stories/1`
+
+```http
+- GET api/list-users/1
+```
 
 **Resposta de Exemplo**
 
@@ -111,7 +116,10 @@ Esta rota é responsável por obter os stories de um usuário específico com ba
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-- `GET api/my-stories/1`
+
+```http
+- GET api/my-stories/1
+```
 
 **Resposta de Exemplo**
 
@@ -146,7 +154,9 @@ Esta rota permite que os usuários façam upload do seu story por meio do envio 
 
 **Exemplo de Uso:**
 
-- `POST api/create-story`
+```http
+- POST api/create-story
+```
 
 **Resposta de Exemplo**
 
