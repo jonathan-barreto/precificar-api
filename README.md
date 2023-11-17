@@ -82,9 +82,9 @@ Esta rota lista os usuários com stories mais recentes, ordenados pelo story mai
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
-    ```bash
-    GET api/list-users/1
-    ```
+```http
+GET api/list-users/1
+```
 
 **Resposta de Exemplo**
 
