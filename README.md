@@ -60,7 +60,7 @@ Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as 
 
 Lembre-se de substituir `SEU_ENDERECO_IP` pelo endereço IP real da máquina que está executando o servidor PHP.
 
-## Obter Imagem
+## Renderizar imagem do story do usuário
 
 **Endpoint:** `GET /storage/stories-images/{image}`
 
@@ -74,20 +74,20 @@ Esta rota permite obter uma imagem de um story específico. O parâmetro `{image
 GET /storage/stories-images/nome_da_imagem.jpg
 ```
 
-## Obter lista de Usuários
+## Recuperar a lista de stories dos usuários.
 
-**Endpoint:** `GET /api/list-users/{user_id}`
+**Endpoint:** `GET /api/users/following/{id}`
 
 **Descrição:**
 
-Esta rota lista os usuários com stories mais recentes, ordenados pelo story mais recente de cada usuário. A lista é filtrada para incluir apenas usuários com stories que ainda não expiraram.
+Esta rota retorna o usuário atual e uma lista de usuários que são seguidos por ele. A lista inclui apenas usuários que têm histórias ativas (não expiradas). Os usuários na lista são ordenados com base na data de criação da história mais recente de cada usuário.
 
 **Parâmetros:**
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
 ```http
-GET /api/list-users/1
+GET /api/users/following/1
 ```
 
 **Resposta de Exemplo**
@@ -108,19 +108,19 @@ GET /api/list-users/1
 }
 ```
 
-## Obter Stories de um Usuário
+## Obter Stories de um suário
 
-**Endpoint:** `GET /api/user-stories/{user_id}`
+**Endpoint:** `GET /api/users/stories/{id}`
 
 **Descrição:**
-Esta rota é responsável por obter os stories de um usuário específico com base no `user_id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
+Esta rota é responsável por obter os stories de um usuário específico com base no `id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
 
 **Parâmetros:**
 - `user_id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
 ```http
-GET /api/my-stories/1
+GET /api/users/stories/1
 ```
 
 **Resposta de Exemplo**
@@ -130,7 +130,7 @@ GET /api/my-stories/1
   "stories": [
     {
       "id": 1,
-      "user_id": 123,
+      "user_id": 1,
       "path_image_story": "story1.jpg",
       "subtitle_story": "Lorem ipsum...",
       "expiration_date": "2023-11-20 12:00:00",
@@ -142,9 +142,9 @@ GET /api/my-stories/1
 }
 ```
 
-## Criação de story
+## Upload de story
 
-**Endpoint:** `POST /api/create-story`
+**Endpoint:** `POST /api/users/stories`
 
 **Descrição:**
 
@@ -156,7 +156,7 @@ Esta rota permite que os usuários façam upload do seu story por meio do envio 
 
 **Exemplo de Uso:**
 ```http
-POST /api/create-story
+POST /api/users/stories
 ```
 
 **Resposta de Exemplo**
@@ -165,4 +165,44 @@ POST /api/create-story
 {
   "message": "Upload do story foi concluído com sucesso!"
 }
+```
+## getUsersList Endpoint
+
+**Endpoint:** `GET /api/users/list/{id}`
+
+**Descrição:**
+
+Esta rota obtém a lista de usuários que estão sendo seguidos e não seguidos por um usuário específico.
+
+**Parâmetros:**
+- `id` (parâmetro de rota): O ID do usuário para o qual você deseja obter a lista.
+
+**Exemplo de Uso:**
+```http
+GET /api/users/list/1
+```
+
+**Resposta de Exemplo**
+
+A resposta será um JSON contendo uma lista de usuários com informações sobre se estão sendo seguidos ou não. Cada usuário terá os seguintes campos:
+
+- `id`: O ID do usuário.
+- `name`: O nome do usuário.
+- `following`: Um indicador booleano que indica se o usuário está sendo seguido pelo usuário específico.
+
+
+```http
+[
+  {
+    "id": 1,
+    "name": "Usuário Seguido",
+    "following": true
+  },
+  {
+    "id": 2,
+    "name": "Usuário Não Seguido",
+    "following": false
+  },
+  // ... outros usuários
+]
 ```
