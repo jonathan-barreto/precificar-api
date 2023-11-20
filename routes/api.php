@@ -27,7 +27,7 @@ Route::post('/users/stories', [StoryController::class, 'uploadStory']);
 
 Route::post('/follow-user', [FollowerController::class, 'followUser']);
 
-Route::post('/unfollow-user', [FollowerController::class, 'unfollowUser']);
+Route::delete('/unfollow-user', [FollowerController::class, 'unfollowUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
