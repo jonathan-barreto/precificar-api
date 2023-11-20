@@ -210,3 +210,42 @@ A resposta será um JSON contendo uma lista de usuários com informações sobre
   // ... outros usuários
 ]
 ```
+
+## Seguir usuário
+
+**Endpoint:** `POST /api/follow-user`
+
+**Descrição:**
+
+Esta rota permite que um usuário siga outro usuário.
+
+**Parâmetros:**
+
+- `follower_id` (corpo da requisição): O ID do usuário que está seguindo.
+- `followed_id` (corpo da requisição): O ID do usuário que está sendo seguido.
+
+**Exemplo de Uso:**
+
+```http
+POST /api/users/follow
+{
+  "follower_id": 1,
+  "followed_id": 2
+}
+```
+
+**Resposta de Exemplo**
+
+A resposta será um JSON contendo informações sobre o usuário seguido. O usuário seguido terá os seguintes campos:
+
+- `id`: O ID do usuário seguido.
+- `name`: O nome do usuário seguido.
+- `following`: Um indicador booleano que indica que o usuário está sendo seguido.
+
+```http
+{
+  "id": 2,
+  "name": "Usuário Seguido",
+  "following": true
+}
+```
