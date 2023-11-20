@@ -13,32 +13,9 @@ class StoryController extends Controller
     //
     const EXPIRATION_HOURS = 1;
 
-    public function listUsers(Request $request)
+    public function getUserStories(Request $request)
     {
-        $id = $request->user_id;
-
-        $user = User::findOrFail($id);
-
-        $users = User::where('id', '<>', $id)
-            ->orderByDesc(function ($query) {
-                $query->select(DB::raw('MAX(created_at)'))
-                    ->from('stories')
-                    ->whereColumn('user_id', 'users.id')
-                    ->where('expiration_date', '>', now());
-            })
-            ->orderBy('id')->get();
-
-        $response = [
-            "current_user" => $user,
-            "users" => $users,
-        ];
-
-        return response()->json($response);
-    }
-
-    public function showUserStories(Request $request)
-    {
-        $user_id = $request->user_id;
+        $user_id = $request->id;
 
         $stories = Story::where('user_id', $user_id)->where('expiration_date', '>', now())->get();
 
@@ -49,7 +26,7 @@ class StoryController extends Controller
         return response()->json(['stories' => []], 200);
     }
 
-    public function createStory(Request $request)
+    public function uploadStory(Request $request)
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -63,7 +40,7 @@ class StoryController extends Controller
             return response()->json(['message' => 'Upload do story foi concluído com sucesso!']);
         }
 
-        return response()->json(['message' => 'Nenhum arquivo enviado.']);
+        return response()->json($request);
     }
 
     private function saveImage($request, $image)

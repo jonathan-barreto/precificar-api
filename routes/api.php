@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoryController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\FollowerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,17 @@ use App\Http\Controllers\StoryController;
 |
 */
 
-Route::get('/list-users/{user_id}', [StoryController::class, 'listUsers']);
+Route::get('/users/list/{id}', [UserController::class, 'getUsersList']);
 
-Route::get('/user-stories/{user_id}', [StoryController::class, 'showUserStories']);
+Route::get('/users/following/{id}', [UserController::class, 'followingUsers']);
 
-Route::post('/create-story', [StoryController::class, 'createStory']);
+Route::get('/users/stories/{id}', [StoryController::class, 'getUserStories']);
+
+Route::post('/users/stories', [StoryController::class, 'uploadStory']);
+
+Route::post('/follow-user', [FollowerController::class, 'followUser']);
+
+Route::post('/unfollow-user', [FollowerController::class, 'unfollowUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

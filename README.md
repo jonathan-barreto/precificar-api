@@ -32,6 +32,12 @@
     php artisan db:seed --class=UsersTableSeeder
     ```
 
+6. Para tornar a pasta storage pública
+
+    ```bash
+    php artisan storage:link
+    ```
+
 ## Iniciando o Servidor PHP 
 
 Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as interfaces de rede, siga estas etapas:
@@ -53,8 +59,6 @@ Para iniciar o servidor PHP usando o Artisan e torná-lo acessível em todas as 
     ```
 
 Lembre-se de substituir `SEU_ENDERECO_IP` pelo endereço IP real da máquina que está executando o servidor PHP.
-
-Certifique-se de fornecer informações adicionais, como a necessidade de ter o PHP instalado, e ajuste conforme necessário para atender às especificidades do seu projeto.
 
 ## Obter Imagem
 
@@ -106,7 +110,7 @@ GET /api/list-users/1
 
 ## Obter Stories de um Usuário
 
-**Endpoint:** `GET /api/my-stories/{user_id}`
+**Endpoint:** `GET /api/user-stories/{user_id}`
 
 **Descrição:**
 Esta rota é responsável por obter os stories de um usuário específico com base no `user_id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
