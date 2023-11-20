@@ -108,7 +108,7 @@ GET /api/users/following/1
 }
 ```
 
-## Obter Stories de um suário
+## Obter Stories de um usuário
 
 **Endpoint:** `GET /api/users/stories/{id}`
 
@@ -116,7 +116,7 @@ GET /api/users/following/1
 Esta rota é responsável por obter os stories de um usuário específico com base no `id`. Retorna uma lista dos stories do usuário, filtrados por aqueles que ainda não expiraram.
 
 **Parâmetros:**
-- `user_id` : O ID do usuário para o qual os stories serão recuperados.
+- `id` : O ID do usuário para o qual os stories serão recuperados.
 
 **Exemplo de Uso:**
 ```http
@@ -151,12 +151,16 @@ GET /api/users/stories/1
 Esta rota permite que os usuários façam upload do seu story por meio do envio de uma imagem. A imagem é salva no sistema de arquivos, e as informações do story são registradas no banco de dados.
 
 **Parâmetros:**
-- `user_id` (body): O ID do usuário que está fazendo o upload.
+- `id` (body): O ID do usuário que está fazendo o upload.
 - `image` (arquivo): A imagem a ser enviada.
 
 **Exemplo de Uso:**
 ```http
-POST /api/users/stories
+{
+  "id": 1,
+  "subtitle_story": "Lorem ipsum...",
+  "image": "story1.jpg"
+}
 ```
 
 **Resposta de Exemplo**

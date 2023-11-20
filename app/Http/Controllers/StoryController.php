@@ -47,7 +47,7 @@ class StoryController extends Controller
     {
         $story = new Story();
 
-        $story->user_id = $request->user_id;
+        $story->user_id = $request->id;
         $story->path_image_story = uniqid() . '.' . $image->getClientOriginalExtension();
         $story->subtitle_story = $request->subtitle_story;
         $story->expiration_date = Carbon::now()->addHours(self::EXPIRATION_HOURS);
