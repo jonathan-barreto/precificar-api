@@ -267,7 +267,7 @@ Esta rota permite que um usuário deixe de seguir outro usuário.
 **Exemplo de Uso:**
 
 ```http
-DELETE /api/users/unfollow-user
+POST /api/users/unfollow-user
 
 {
   "follower_id": 1,
