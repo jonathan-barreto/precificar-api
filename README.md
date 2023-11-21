@@ -253,7 +253,7 @@ A resposta será um JSON contendo informações sobre o usuário seguido. O usu�
 
 ## Unfolow usuário
 
-**Endpoint:** `DELETE /api/unfollow-user`
+**Endpoint:** `POST /api/unfollow-user`
 
 **Descrição:**
 
